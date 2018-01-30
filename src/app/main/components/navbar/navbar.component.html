@@ -1,0 +1,26 @@
+<nav class="navbar sticky-top navbar-dark navbar-expand-lg bg-danger-lite p-2" (window:resize)="onResize($event)" *ngIf="!isLogin()">
+    <span class="navbar-brand mr-4" href="#">
+        <span>App Title</span>
+    </span>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" #navButton
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
+        <div class="navbar-nav w-100">
+            <a class="nav-item nav-link mr-1" routerLink="/dashboard" routerLinkActive="active" (click)="mobile?navButton.click():''">
+                <i class="fa fa-tachometer" aria-hidden="true"></i> Dashboard
+            </a>
+            <a class="nav-item nav-link mr-1" routerLink="/page_link" routerLinkActive="active" (click)="mobile?navButton.click():''">
+                <i class="fa fa-plus" aria-hidden="true"></i> New Page
+            </a>
+            <div class="dropdown-divider"></div>
+            <a class="nav-item nav-link ml-lg-auto" routerLink="/profile" routerLinkActive="active" (click)="mobile?navButton.click():''">
+                <i class="fa fa-user-o" aria-hidden="true"></i> My Profile
+            </a>
+            <a class="nav-item nav-link" (click)="logout()" href="javascript:void(0);">
+                <i class="fa fa-sign-out" aria-hidden="true"></i> Sign Out
+            </a>
+        </div>
+    </div>
+</nav>
