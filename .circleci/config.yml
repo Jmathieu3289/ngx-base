@@ -1,7 +1,7 @@
 version: 2
 jobs:
   build:
-    working_directory: ~/purge
+    working_directory: ~/project
     docker:
       - image: circleci/node:8.9.3-browsers
     steps:
@@ -23,7 +23,7 @@ jobs:
           paths:
             - public
   deploy:
-    working_directory: ~/purge
+    working_directory: ~/project
     docker:
       - image: circleci/python:3.6.1
     steps:
@@ -34,16 +34,13 @@ jobs:
           name: Install aws cli
           command: sudo pip install awsebcli
       - run:
-          name: Upgrade botocore
-          command: pip install --upgrade botocore
-      - run:
           name: Setup AWS credentials
           command: |
             mkdir ~/.aws && printf "[profile eb-cli]\naws_access_key_id = ${AWS_ACCESS_KEY_ID}\naws_secret_access_key = ${AWS_SECRET_ACCESS_KEY}" > ~/.aws/config
       - deploy:
           name: Deploy to Elastic Beanstalk
           command: |
-            eb deploy --debug
+            eb deploy
 workflows:
   version: 2
   build_and_deploy:
