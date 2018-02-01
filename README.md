@@ -24,6 +24,10 @@ SESSION_SECRET=[Anything you want can go here]
 In the AWS management console, go to IAM. Create a user called circle-ci. Give this new user a group, and add the AWSElasticBeanstalkFullAccess policy. Create an access key, and use it
 in CircleCI.
 
+### Update the `.elasticbeanstalk/.config.yml` file
+
+
+
 ## Using This Project
 
 ### Node server
