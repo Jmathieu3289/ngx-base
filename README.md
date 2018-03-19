@@ -18,13 +18,14 @@ MYSQL_PASSWORD=
 MYSQL_DATABASE=[Default DB to load]
 SESSION_SECRET=[Anything you want can go here]
 ```
+### Create an elasticbeanstalk instance
+
+Under `Confuration -> Software` create environment variables to match above.
 
 ### AWS User
 
 In the AWS management console, go to IAM. Create a user called circle-ci. Give this new user a group, and add the AWSElasticBeanstalkFullAccess policy. Create an access key, and use it
 in CircleCI.
-
-### Create an elasticbeanstalk instance
 
 ### Update the `.elasticbeanstalk/.config.yml` file
 
@@ -32,7 +33,7 @@ in CircleCI.
 `application name`: Your elasticbeanstalk app name
 `default_ec2_keyname`: Create a keypair under EC2, and then under EBS->Configuration->Security choose your virtual machine key pair.
 
-## Install depdencencies
+### Install dependencies
 
 Run `npm install` before starting the project.
 
