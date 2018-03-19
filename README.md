@@ -24,9 +24,17 @@ SESSION_SECRET=[Anything you want can go here]
 In the AWS management console, go to IAM. Create a user called circle-ci. Give this new user a group, and add the AWSElasticBeanstalkFullAccess policy. Create an access key, and use it
 in CircleCI.
 
+### Create an elasticbeanstalk instance
+
 ### Update the `.elasticbeanstalk/.config.yml` file
 
+`environment`: Your elasticbeanstalk environment name, typically ends in -env
+`application name`: Your elasticbeanstalk app name
+`default_ec2_keyname`: Create a keypair under EC2, and then under EBS->Configuration->Security choose your virtual machine key pair.
 
+## Install depdencencies
+
+Run `npm install` before starting the project.
 
 ## Using This Project
 
